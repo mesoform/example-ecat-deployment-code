@@ -1,20 +1,15 @@
 variable "project_id" {}
-variable "role_bindings" {}
 variable "project_name" {}
 variable "org_id" {}
 variable "folder_id" {}
-variable "region" {}
 variable "skip_delete" {}
 variable "billing_id" {}
-
-provider "google" {
- region = "${var.region}"
-}
 
 resource "google_project" "project" {
  name            = "${var.project_name}"
  project_id      = "${var.project_id}"
  billing_account = "${var.billing_id}"
+ folder_id       = "${var.folder_id}"
 }
 
 resource "google_project_service" "project" {
@@ -26,4 +21,3 @@ resource "google_project_service" "project" {
 output "project_id" {
  value = "${google_project.project.project_id}"
 }
-
