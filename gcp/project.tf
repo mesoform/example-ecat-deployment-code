@@ -4,6 +4,7 @@ variable "project_name" {}
 variable "org_id" {}
 variable "folder_id" {}
 variable "billing_id" {}
+variable "skip_delete" {}
 
 resource "google_project" "project" {
  name            = var.project_name
