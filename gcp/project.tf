@@ -1,3 +1,10 @@
+terraform {
+  backend "gcs" {
+    bucket  = "update-gcs-bucket-name-here"
+    prefix  = "update-gcs-prefix-name-here"
+  }
+}
+
 variable "project_id" {}
 variable "role_bindings" {}
 variable "project_name" {}
